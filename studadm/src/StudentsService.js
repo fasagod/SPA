@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 
-
 const url = 'http://localhost:5000/api/students/';
 
 class StudentService{
@@ -22,7 +21,7 @@ class StudentService{
     })  
     }
     //create
-    static insertStudent(direction, type, course){
+    static insertStudent(name, avg, typest,age,academ,group){
         
         return axios.post(url, {
             name: req.body.name,
@@ -30,7 +29,7 @@ class StudentService{
             typest: req.body.typest,
             age: req.body.age,
             academ: req.body.academ,
-            student: req.body.student
+            group: req.body.group
         })
     }
 
@@ -39,14 +38,14 @@ class StudentService{
         return axios.delete(`${url}${id}`);
     }
     //upd
-    static updateStudent(id,direction, type, course){
+    static updateStudent(id,name, avg, typest,age,academ,group){
         return axios.put(`${url}${id}`,{
             name: req.body.name,
             avg: req.body.avg,
             typest: req.body.typest,
             age: req.body.age,
             academ: req.body.academ,
-            student: req.body.student
+            group: req.body.group
         })
     }
 }

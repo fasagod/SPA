@@ -6,12 +6,12 @@
     @select="handleSelect"
   >
     <el-menu-item index="1">
-        <router-link class="nav-link" to="/GroupComponent">Group</router-link>
+        <router-link class="nav-link" to="/">Group</router-link>
     </el-menu-item>
-    <el-submenu index="2">
+    <el-menu-item index="2">
       <template slot="title"><router-link class="nav-link" to="/AddGroup">Add Group</router-link>
 </template>
-    </el-submenu>
+    </el-menu-item>
     <el-menu-item index="3">
         <router-link class="nav-link" to="/AddStudent">Add student</router-link>
     </el-menu-item>
@@ -30,10 +30,10 @@ export default {
       activeIndex: "1"
     };
   },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    }
-  }
+//   methods: {
+//     handleSelect(key, keyPath) {
+//       console.log(key, keyPath);
+//     }
+//   }
 };
 </script>

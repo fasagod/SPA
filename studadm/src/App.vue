@@ -1,19 +1,23 @@
 <template>
   <div id="app">
-    <AddGroup/>
-    <GroupComponent/>
+    <NavBar/>
+    <router-view></router-view>
+    <!-- <AddGroup/>
+    <GroupComponent/> -->
   </div>
 </template>
 
 <script>
-import GroupComponent from './components/GroupComponent.vue'
-import AddGroup from './components/AddGroup.vue'
+// import GroupComponent from './components/GroupComponent.vue'
+// import AddGroup from './components/AddGroup.vue'
+import NavBar from './components/NavBar.vue'
 
 export default {
   name: 'app',
   components: {
-    AddGroup,
-    GroupComponent
+    NavBar,
+    // AddGroup,
+    // GroupComponent
 
   }
 }
