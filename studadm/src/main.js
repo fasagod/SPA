@@ -5,6 +5,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import VueRouter from 'vue-router'
 import GroupComponent from './components/GroupComponent.vue'
 import AddGroup from './components/AddGroup.vue'
+import AddStudent from './components/AddStudent.vue'
+
 
 Vue.use(VueRouter)
 Vue.use(ElementUI);
@@ -13,9 +15,8 @@ Vue.config.productionTip = false
 
 const routes = [
   { path: '/', component: GroupComponent},
-  { path: '/AddGroup', component: AddGroup}
- // ,
-  // { path: '/AddStudent',component: AddStudent},
+  { path: '/AddGroup', component: AddGroup},
+  { path: '/AddStudent',component: AddStudent}
   // { path: '/StudentsInfo',component: StudentsInfo},
   // { path: '/GroupsInfo',component: GroupsInfo}
 

@@ -24,12 +24,12 @@ class StudentService{
     static insertStudent(name, avg, typest,age,academ,group){
         
         return axios.post(url, {
-            name: req.body.name,
-            avg: req.body.avg,
-            typest: req.body.typest,
-            age: req.body.age,
-            academ: req.body.academ,
-            group: req.body.group
+            name,
+            avg,
+            typest,
+            age,
+            academ,
+            group
         })
     }
 
@@ -40,12 +40,12 @@ class StudentService{
     //upd
     static updateStudent(id,name, avg, typest,age,academ,group){
         return axios.put(`${url}${id}`,{
-            name: req.body.name,
-            avg: req.body.avg,
-            typest: req.body.typest,
-            age: req.body.age,
-            academ: req.body.academ,
-            group: req.body.group
+            name,
+            avg,
+            typest,
+            age,
+            academ,
+            group
         })
     }
 }

@@ -35,7 +35,10 @@
         <el-button type="primary" @click="editConfirm">Confirm</el-button>
       </span>
     </el-dialog>
+  <!-- <StudentComponent></StudentComponent> -->
+
   </div>
+
 </template>
 
 <script>

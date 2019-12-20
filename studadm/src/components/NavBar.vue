@@ -3,7 +3,6 @@
     :default-active="activeIndex"
     class="el-menu-demo"
     mode="horizontal"
-    @select="handleSelect"
   >
     <el-menu-item index="1">
         <router-link class="nav-link" to="/">Group</router-link>

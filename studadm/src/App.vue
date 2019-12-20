@@ -11,14 +11,16 @@
 // import GroupComponent from './components/GroupComponent.vue'
 // import AddGroup from './components/AddGroup.vue'
 import NavBar from './components/NavBar.vue'
+//import StudentsComponent from "./components/StudentsComponent.vue";
+
 
 export default {
   name: 'app',
   components: {
-    NavBar,
+    NavBar
     // AddGroup,
     // GroupComponent
-
+    //StudentsComponent
   }
 }
 </script>
