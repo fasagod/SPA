@@ -33,10 +33,8 @@ router.post('/', async (req,res)=>{
 router.delete('/:id', async(req,res) => {
     try {
         const groups = await loadGroupsCollection();
-
-        let result = await groups.deleteOne({'_id':(req.params.id)});
+        await groups.deleteOne({_id:new mongodb.ObjectId(req.params.id)});
         res.status(200).send();
-        console.log(result);
 
     } catch (error) {
         console.log(error);        
@@ -47,8 +45,7 @@ router.delete('/:id', async(req,res) => {
 router.put('/:id', async(req,res)=>{
     try {
         const groups = await loadGroupsCollection();
-        console.log(req.params.id);
-        await groups.updateOne({'_id':(req.params.id)},
+        await groups.updateOne({_id: new mongodb.ObjectId(req.params.id)},
         {$set: {
             "direction": req.body.direction,
             "type": req.body.type,

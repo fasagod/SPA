@@ -38,7 +38,7 @@ router.delete('/:id', async(req,res) => {
     try {
         const students = await loadStudentsCollection();
 
-        let result = await students.deleteOne({'_id':(req.params.id)});
+        let result = await students.deleteOne({_id:new mongodb.ObjectId(req.params.id)});
         res.status(200).send();
         console.log(result);
 
@@ -52,7 +52,7 @@ router.put('/:id', async(req,res)=>{
     try {
         const students = await loadStudentsCollection();
         console.log(req.params.id);
-        await students.updateOne({'_id':(req.params.id)},
+        await students.updateOne({_id:new mongodb.ObjectId(req.params.id)},
         {$set: {
             "name": req.body.name,
             "avg": req.body.avg,
