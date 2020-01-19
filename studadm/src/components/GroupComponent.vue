@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div><h2 style="margin:20px">Groups</h2></div>
     <el-table
       :data="groups.filter(data => !search || data.direction.toLowerCase().includes(search.toLowerCase()))"
       style="width: 100%"
@@ -35,14 +36,17 @@
         <el-button type="primary" @click="editConfirm">Confirm</el-button>
       </span>
     </el-dialog>
-  <!-- <StudentComponent></StudentComponent> -->
-
+    <div>
+    <h2 style="margin:20px">Students</h2>
+   <StudentsComponent></StudentsComponent>
+</div>
   </div>
 
 </template>
 
 <script>
 import GroupService from "../GroupService";
+import StudentsComponent from "../components/StudentsComponent";
 
 export default {
   data() {
@@ -77,6 +81,9 @@ export default {
       this.dialogFormVisible = false;
 
     }
+  },
+  components:{
+    StudentsComponent:StudentsComponent
   }
 };
 </script>

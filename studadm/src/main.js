@@ -6,10 +6,10 @@ import VueRouter from 'vue-router'
 import GroupComponent from './components/GroupComponent.vue'
 import AddGroup from './components/AddGroup.vue'
 import AddStudent from './components/AddStudent.vue'
-
+import locale from 'element-ui/lib/locale/lang/ru-RU'
 
 Vue.use(VueRouter)
-Vue.use(ElementUI);
+Vue.use(ElementUI, { locale });
 Vue.config.productionTip = false
 
 
