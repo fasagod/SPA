@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-table
-      :data="groups.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+      :data="students.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
       style="width: 100%"
     >
       <el-table-column label="ФИО" prop="name"></el-table-column>
@@ -18,10 +18,10 @@
         </template>
       </el-table-column>
     </el-table>
-
+    <!-- Диалоговое окно -->
     <el-dialog v-if="dialogFormVisible" title="Student Edit" :visible.sync="dialogFormVisible">
       <el-form :model="selectedStudent">
-        {{selectedStudent._id}}
+        <p hidden="hidden">{{selectedStudent._id}}</p>
         <el-form-item label="ФИО">
           <el-input v-model="selectedStudent.name" autocomplete="off"></el-input>
         </el-form-item>
@@ -29,7 +29,7 @@
           <el-input v-model="selectedStudent.avg" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="Тип обучения">
-          <el-select v-model="selectedStudent.type" placeholder="Please select a type">
+          <el-select v-model="selectedStudent.typest" placeholder="Please select a type">
             <el-option label="Бюджет" value="Бюджет"></el-option>
             <el-option label="Комерция" value="Комерция"></el-option>
           </el-select>
@@ -48,9 +48,12 @@
             <el-option v-for="(group,index) in groups"
             v-bind:item="group"
             v-bind:index="index"
-            v-bind:key="group._id">
-            {{groups.deriction + groups.course}}
+            v-bind:label="group.direction + group.course"
+            v-bind:key="group._id"
+            v-bind:value="group._id">
+            {{group.direction + group.course}}
             </el-option>
+
           </el-select>
         </el-form-item>
       </el-form>
@@ -69,7 +72,7 @@ import StudentsService from '../StudentsService';
 export default {
   data() {
     return {
-        students:[],
+      students:[],
       search: "",
       groups: [],
       error: "",

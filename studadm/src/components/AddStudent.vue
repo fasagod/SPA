@@ -8,7 +8,7 @@
           <el-input v-model="formLabelAlign.avg" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="Тип обучения">
-          <el-select v-model="formLabelAlign.type" placeholder="Выберите тип обучения">
+          <el-select v-model="formLabelAlign.typest" placeholder="Выберите тип обучения">
             <el-option label="Бюджет" value="Бюджет"></el-option>
             <el-option label="Комерция" value="Комерция"></el-option>
           </el-select>
@@ -17,7 +17,7 @@
           <el-input v-model="formLabelAlign.age" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="Наличие задолжностей">
-          <el-select v-model="formLabelAlign.academ" placeholder="Отметьте наличие задолжностей">
+          <el-select size="medium" v-model="formLabelAlign.academ" placeholder="Отметьте наличие задолжностей">
             <el-option label="Да" value="Да"></el-option>
             <el-option label="Нет" value="Нет"></el-option>
           </el-select>
@@ -27,8 +27,9 @@
             <el-option v-for="(group,index) in groups"
             v-bind:item="group"
             v-bind:index="index"
+            v-bind:label="group.direction"
             v-bind:key="group._id"
-            v-bind:value="group.direction">
+            v-bind:value="group._id">
             {{group.direction + group.course}}
             </el-option>
           </el-select>

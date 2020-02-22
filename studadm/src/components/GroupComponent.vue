@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div><h2 style="margin:20px">Groups</h2></div>
+    <div>
+      <h2 style="margin:20px">Groups</h2>
+    </div>
     <el-table
       :data="groups.filter(data => !search || data.direction.toLowerCase().includes(search.toLowerCase()))"
       style="width: 100%"
@@ -17,11 +19,12 @@
     </el-table>
 
     <el-dialog v-if="dialogFormVisible" title="Group Edit" :visible.sync="dialogFormVisible">
-      <el-form :model="selectedGroup">{{selectedGroup._id}}
-        <el-form-item label="Direction" >
+      <el-form :model="selectedGroup">
+        <p hidden="hidden">{{selectedGroup._id}}</p>
+        <el-form-item label="Direction">
           <el-input v-model="selectedGroup.direction" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="Type" >
+        <el-form-item label="Type">
           <el-select v-model="selectedGroup.type" placeholder="Please select a type">
             <el-option label="Очная" value="Очная"></el-option>
             <el-option label="Заочная" value="Заочная"></el-option>
@@ -36,17 +39,16 @@
         <el-button type="primary" @click="editConfirm">Confirm</el-button>
       </span>
     </el-dialog>
-    <div>
-    <h2 style="margin:20px">Students</h2>
-   <StudentsComponent></StudentsComponent>
-</div>
+    <!-- <div>
+      <h2 style="margin:20px">Students</h2>
+      <StudentsComponent></StudentsComponent>
+    </div> -->
   </div>
-
 </template>
 
 <script>
 import GroupService from "../GroupService";
-import StudentsComponent from "../components/StudentsComponent";
+// import StudentsComponent from "../components/StudentsComponent";
 
 export default {
   data() {
@@ -54,7 +56,7 @@ export default {
       search: "",
       groups: [],
       error: "",
-      selectedGroup : null,
+      selectedGroup: null,
       dialogTableVisible: false,
       dialogFormVisible: false
     };
@@ -74,16 +76,20 @@ export default {
     onEdit(id) {
       this.dialogFormVisible = true;
       this.selectedGroup = this.groups[id];
-
     },
-    editConfirm(){
-      GroupService.updateGroup(this.selectedGroup._id,this.selectedGroup.direction,this.selectedGroup.type,this.selectedGroup.course);
+    editConfirm() {
+      GroupService.updateGroup(
+        this.selectedGroup._id,
+        this.selectedGroup.direction,
+        this.selectedGroup.type,
+        this.selectedGroup.course
+      );
       this.dialogFormVisible = false;
-
     }
-  },
-  components:{
-    StudentsComponent:StudentsComponent
   }
+  // ,
+  // components:{
+  //   StudentsComponent:StudentsComponent
+  // }
 };
 </script>

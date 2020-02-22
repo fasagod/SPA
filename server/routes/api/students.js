@@ -40,7 +40,6 @@ router.delete('/:id', async(req,res) => {
 
         let result = await students.deleteOne({_id:new mongodb.ObjectId(req.params.id)});
         res.status(200).send();
-        console.log(result);
 
     } catch (error) {
         console.log(error);        
